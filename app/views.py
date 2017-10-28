@@ -10,3 +10,7 @@ def index():
 @app.route('/ishar-library/')
 def ishar_library():
     return render_template('ISHARLibrary.html')
+
+@app.route('/ishar-JournalPortal/')
+def ishar_journal_portal():
+    return render_template('ISHARJournalPortal.html')
