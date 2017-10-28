@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">ISHAR Online</a>
+                <a class="navbar-brand" href="{{ url_for('index') }}">ISHAR Online</a>
             </div>
             
             <ul class="nav navbar-top-links navbar-right">
@@ -73,10 +73,14 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <img src="{{ url_for('static', filename='pictures/logo.png') }}" width="240px" style="margin:5px"/>
+                            <a href="{{ url_for('index') }}">
+                                <div class="row text-center">
+                                    <img src="{{ url_for('static', filename='pictures/ishar-logo.png') }}" width="160px" />
+                                </div>
+                            </a>
                         </li>
                         <li class="sidebar-search">
-                            <form role="form" action="/search">
+                            <form role="form" action="{{ url_for('search') }}">
                                 <div class="input-group custom-search-form">
                                     <input id="search-field" type="text" class="form-control" name="val" placeholder="Search...">
                                     <span class="input-group-btn">
@@ -127,6 +131,13 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-envelope fa-fw"></i> Contact</a>
+                        </li>
+                        <li>
+                            <a href="https://www.choprafoundation.org/">
+                                <div class="row text-center">
+                                    <img src="{{ url_for('static', filename='pictures/chopra-logo.png') }}" width="220px" style="margin:10px;"= />
+                                </div>
+                            </a>
                         </li>
                     </ul>
                 </div>
