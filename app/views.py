@@ -25,7 +25,7 @@ def view_article(article_key):
     
 @app.route('/tags/<tag>/', methods=['GET'])
 def view_articles_with_tag(tag):
-    articles = models.Article.query.filter(or_(
+    pagination = models.Article.query.filter(or_(
         models.Article.auto_tags.contains(tag),
         models.Article.manual_tags.contains(tag)
     )).paginate(per_page=10)
