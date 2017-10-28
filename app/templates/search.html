@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% from 'macros/pagination.html' import paginate %}
 {% block title %}Search Results - {{ value }}{% endblock %}
 
 {% block content %}
@@ -92,4 +93,7 @@
     </div>
 </div>
 {% endfor %}
+{% if pagination %}
+{{ paginate(pagination) }}
+{% endif %}
 {% endblock %}

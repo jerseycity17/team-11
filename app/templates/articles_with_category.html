@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% from 'macros/pagination.html' import paginate %}
-{% block title %}{{ tag }}{% endblock %}
+{% block title %}{{ category }}{% endblock %}
 
 {% block content %}
 <div class="row">
     <div class="col-sm-12">
-        <h1 class="page-header">Tag: {{ tag }}</h1>
+        <h1 class="page-header">Category: {{ category }}</h1>
     </div>
 </div>
 {% for article in articles %}
@@ -33,5 +33,6 @@
     </div>
 </div>
 {% endfor %}
-{% paginate(pagination) %}
+{{ paginate(pagination) }}
+
 {% endblock %}

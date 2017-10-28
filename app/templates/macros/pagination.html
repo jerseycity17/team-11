@@ -1,0 +1,17 @@
+{% macro paginate(pagination) %}
+<div class=pagination>
+    <div class="btn-group" role="group">
+    {% for page in pagination.iter_pages() %}
+        {% if page %}
+        {% if page != pagination.page %}
+        <a href="{{ url_for('view_articles_with_category', category=category, page=page) }}" class="btn btn-default">{{ page }}</a>
+        {% else %}
+        <strong class="btn btn-primary" disabled>{{ page }}</strong>
+        {% endif %}
+        {% else %}
+        <span class="ellipsis btn btn-default" disabled>…</span>
+        {% endif %}
+    {% endfor %}
+    </div>
+</div>
+{% endmacro %}
