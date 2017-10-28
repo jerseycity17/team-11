@@ -1,6 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+</style>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header"> Journal Portals</h1>
@@ -12,6 +57,654 @@
         <p>ISHAR sources hundreds of medical and scientific journals to gather its information, but due to copyright limitations the ISHAR library does not contain all sources from all journals.  We encourage our visitors to explore the many source materials behind ISHAR, especially if they cannot find a source they were looking for on this site.  Below is a list of links to over one hundred medical and scientific journals dedicated to the discussion of complementary and alternative medicine (CAM), consciousness and the mind-body connection.  Below this Journal Portal are summaries of many of the journals which offer full or partial access for free, a rare and valuable feature outside of ISHAR.</p>
     </div>
 </div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Acupuncture</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="http://www.cognizantcommunication.com/filecabinet/Acupuncture/acu.htm">Acupuncture and Electro-Therapeutics Research</a>
+        <a href="http://www.medical-acupuncture.co.uk/aimintro.htm">Acupuncture in Medicine</a>
+        <a href="http://acupuncturejournal.com/">American Journal of Acupuncture</a>
+        <a href="http://www.acupuncture.org.au/ajacm.cfm">Australian Journal of Acupuncture and Chinese Medicine</a>
+        <a href="http://www.liebertpub.com/publication.aspx?pub_id=233">Medical Acupuncture</a>
+        <a href="http://www.medicalacupuncture.org/aama_marf/journal/index.html">Medical Acupuncture Online Journal</a>
+        <a href="http://www.ontcm.com/wjam/index.htm">World Journal of Acupuncture and Moxibustion</a>
+    </div>
+</div>
 
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Alternative and complementary medicines</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="http://www.bioline.org.br/tc">African Journal of Traditional, Complementary and Alternative Medicines</a>
+        <a href="http://www.liebertpub.com/publication.aspx?pub_id=3">Alternative and Complementary Therapies</a>
+        <a href="http://www.thorne.com/alternative_medicine_review.wss">Alternative Medicine Review</a>
+        <a href="http://www.alternative-therapies.com/">Alternative Therapies in Health and Medicine</a>
+        <a href="http://www.biomedcentral.com/bmccomplementalternmed">BMC Complementary and Alternative Medicine</a>
+        <a href="http://www.sagepub.com/journalsProdDesc.nav?prodId=Journal201646">Complementary Health Practice Review</a>
+        <a href="http://www.sciencedirect.com/science/journal/17443881">Complementary Therapies in Clinical Practice</a>
+        <a href="http://www.sciencedirect.com/science/journal/09652299">Complementary Therapies in Medicine</a>
+        <a href="http://ecam.oxfordjournals.org/">Evidence-based Complementary and Alternative Medicine</a>
+        <a href="http://www.medicinescomplete.com/journals/fact/current/">FACT (Focus on Alternative and Complementary Therapies)</a>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Animal Experimentation</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="http://www.altex.ch/en/index.html?id=12">Altex - Alternatives to Animal Experimentation</a>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Behavioral</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="http://www.ijbnpa.org/home">International Journal of Behavioral Nutrition and Physical Activity</a>
+        <a href="http://www.sciencedirect.com/science/journal/13608592">Journal of Bodywork and Movement Therapies</a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Care</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="http://www.tandf.co.uk/journals/titles/13561820.html">Journal of Interprofessional Care</a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Chiropractic</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="http://www.chiroandosteo.com/">Chiropractic and Osteopathy</a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Cancer</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="http://www.sagepub.com/journal.aspx?pid=286">Integrative Cancer Therapies</a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Clinical</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="http://ijca.net/">International Journal of Clinical Aromatherapy</a>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">College Medicine</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Chiropractic Education</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Circadian Rhythms</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Child Health</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Dietary</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Drug</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Eastern Medicine</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Electro-shock therapy</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Ethnopharmacology</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Feet</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Health Promotion</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Health Technology</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Herbalism</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Homeopathic Medicine</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Hospice</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Hypnosis</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Medical Sciences</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Medicine</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Medical Food</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Mind-body</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Midwifery</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Music Therapy</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Manual Therapy</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Naturopathy</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">North America Medicine</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Osteopathy</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Oncology</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Public Health</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Physiological Therapeutics</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Phytomedicine</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Phytotherapy</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Research</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Science</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </div>
+</div>
+
+<script type="text/javascript">function myFunction() {
+document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+
+var dropdowns = document.getElementsByClassName("dropdown-content");
+var i;
+for (i = 0; i < dropdowns.length; i++) {
+var openDropdown = dropdowns[i];
+if (openDropdown.classList.contains('show')) {
+openDropdown.classList.remove('show');
+}
+}
+}
+}
+</script>
 {% endblock %}
         
