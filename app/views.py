@@ -85,6 +85,23 @@ def search():
                 search_results = search_results.filter(models.Article.publication_title.contains(publication_title))
             else:
                 search_results = search_results.filter(not_(models.Article.publication_title.contains(publication_title)))
+        if request.args.get('tag_search'):
+            searched = True
+            tags = request.args.get('tag_search').split(',')
+            if request.args.get('tag_search_filter') == '1':
+                for tag in tags:
+                    search_results = search_results.filter(or_(models.Article.auto_tags.contains(tag),(models.Article.manual_tags.contains(tag))))
+            else:
+                for tag in tags:
+                    search_results = search_results.filter(not_(or_(models.Article.auto_tags.contains(tag),(models.Article.manual_tags.contains(tag)))))
+                    
+        if request.args.get('category_search'):
+            searched = True
+            category = request.args.get('category_search')
+            if request.args.get('category_search_filter') == '1':
+                search_results = search_results.filter(models.Article.category.contains(category))
+            else:
+                search_results = search_results.filter(not_(models.Article.category.contains(category)))
         if searched:
             search_results = search_results.paginate(per_page=10)
             articles = search_results.items
