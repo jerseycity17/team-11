@@ -122,7 +122,7 @@
     {% for page in pagination.iter_pages() %}
         {% if page %}
         {% if page != pagination.page %}
-        <a href="{{ url_for('search', page=page, title_search=title_search, title_search_filter=title_search_filter, author_search=author_search, author_search_filter=author_search_filter, abstract_search=abstract_search, abstract_search_filter=abstract_search_filter, publication_title_search=publication_title_search, publication_title_search_filter=publication_title_search_filter, tag_search=tag_search, tag_search_filter=tag_search_filter, category_search=category_search, category_search_filter=category_search_filter, ) }}" class="btn btn-default">{{ page }}</a>
+        <a href="{{ url_for('search', page=page, val=val, title_search=title_search, title_search_filter=title_search_filter, author_search=author_search, author_search_filter=author_search_filter, abstract_search=abstract_search, abstract_search_filter=abstract_search_filter, publication_title_search=publication_title_search, publication_title_search_filter=publication_title_search_filter, tag_search=tag_search, tag_search_filter=tag_search_filter, category_search=category_search, category_search_filter=category_search_filter, ) }}" class="btn btn-default">{{ page }}</a>
         {% else %}
         <strong class="btn btn-primary" disabled>{{ page }}</strong>
         {% endif %}
