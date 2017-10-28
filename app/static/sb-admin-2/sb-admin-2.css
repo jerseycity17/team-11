@@ -3,8 +3,19 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-body {
-  background-color: #f8f8f8;
+html, body {
+  background-color: white ;
+}
+.sidebar {
+  white-space: nowrap;
+  height: calc(100vh - 52px)
+}
+.sidebar .nav-second-level li {
+  border-left: 1px solid #e7e7e7;
+  margin-left: 15px;
+}
+.sidebar ul li a {
+  padding-left: 15px!important
 }
 #wrapper {
   width: 100%;
