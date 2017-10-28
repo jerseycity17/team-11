@@ -21,3 +21,10 @@ def view_article(article_key):
     article = models.Article.query.filter_by(key=article_key).first()
     
     return render_template('article.html', article=article)
+    
+@app.route('/tags/<tag>/', methods=['GET'])
+def view_articles_with_tag(tag):
+    articles = ' '
+    articles = models.Article.query.filter(models.Article.auto_tags.contains(tag)).all()
+    articles += models.Article.query.filter(models.Article.manual_tags.contains(tag)).all()
+    return render_template('articles_with_tag.html', tag=tag, articles=articles)

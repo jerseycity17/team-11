@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}{{ tag }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">Tag: {{ tag }}</h1>
+    </div>
+</div>
+{% for article in articles %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <a class="panel-heading" style="display: block" href="{{ url_for('view_article', article_key=article.key) }}"><h4>{{ article.title }}</h4></a>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-2 text-right-sm"><strong>Publication Title:</strong></div>
+                    <div class="col-sm-10">{{ article.publication_title }}</div>
+                </div>
+                {% set tags = article.auto_tags.split('; ') + article.manual_tags.split('; ') %}
+                <div class="row">
+                    <div class="col-sm-2 text-right-sm"><strong>Tags:</strong></div>
+                    <div class="col-sm-10">{% for tag in tags %}{% if tag %}<a href="{{ url_for('view_articles_with_tag', tag=tag) }}">{{ tag }}</a>{% if not loop.last %}; {% endif %}{% endif %}{% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 text-right-sm"><strong>Author(s):</strong></div>
+                    <div class="col-sm-10">{% for author in article.author.split(';') %}<div>{{author}}</div>{% endfor %}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
