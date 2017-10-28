@@ -14,7 +14,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-sm-2 text-right-sm"><strong>Categories:</strong></div>
-                    <div class="col-sm-10">{{ article.category }}</div>
+                    <div class="col-sm-10"><a href="{{ url_for('view_articles_with_category', category=article.category) }}">{{ article.category }}</a></div>
                 </div>
                 {% set tags = article.auto_tags.split('; ') + article.manual_tags.split('; ') %}
                 <div class="row">
@@ -93,6 +93,16 @@
                     <div class="col-sm-2 text-right-sm"><strong>Links:</strong></div>
                     <div class="col-sm-10"><a href="{{article.link_attachments}}">{{ article.link_attachments }}</a></div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Turabian/Chicago Citation</div>
+            <div class="panel-body">
+                {% for author in article.author.split(';') %}{% if loop.last and not loop.first %}and {{ author }}{% elif loop.last and loop.first %}{{ author }}{% else %}{{ author }}, {% endif %}{% endfor %}.{{ article.date }}. "{{ article.title }}." <cite>{{ article.publication_title }}</cite>. {% if article.doi %}{{ article.doi }}{% else %}{{ article.volume }}: {{ article.issue }}: {{ article.pages }}{% endif %}.
             </div>
         </div>
     </div>

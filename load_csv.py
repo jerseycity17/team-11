@@ -56,7 +56,7 @@ with open(file, 'rb') as csvfile:
             category = unicode(category_name)
         )
         db.session.merge(article)
-        db.session.commit()
+    db.session.commit()
     db.session.close()
     articles = models.Article.query.all()
     for article in articles:
