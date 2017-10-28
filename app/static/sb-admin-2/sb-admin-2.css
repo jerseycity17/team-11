@@ -8,7 +8,6 @@ html, body {
 }
 .sidebar {
   white-space: nowrap;
-  height: calc(100vh - 52px)
 }
 .sidebar .nav-second-level li {
   border-left: 1px solid #e7e7e7;
@@ -442,4 +441,9 @@ table.dataTable thead .sorting:after {
     border-right-width: 14px;
     border-left-width: 0;
   }
+}
+@media (min-width: 768px) {
+    .text-right-sm {
+        text-align: right;
+    }
 }
