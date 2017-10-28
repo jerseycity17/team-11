@@ -4,6 +4,8 @@ from app import db, models
 from flask import render_template, redirect, abort, url_for, jsonify, request
 from sqlalchemy import or_, not_
 
+from collections import OrderedDict
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -35,6 +37,22 @@ def view_articles_with_tag(tag):
 def view_articles_with_category(category):
     pagination = models.Article.query.filter_by(category=category).paginate(per_page=10)
     return render_template('articles_with_category.html', category=category, pagination=pagination, articles=pagination.items)
+    
+@app.route('/tags/', methods=['GET'])
+def view_tags():
+    tags_list = [article.auto_tags for article in models.Article.query.all()]
+    tag_dict = {}
+    for tags in tags_list:
+        tag_list = tags.split(';')
+        for tag in tag_list:
+            if tag not in tag_dict:
+                tag_dict[tag] = 1
+            else:
+                tag_dict[tag] += 1
+    
+    tags = OrderedDict(sorted(tag_dict.items(), key = lambda k: k[0]))
+    
+    return render_template('tags.html', tags=tags)
     
 @app.route('/search/', methods=['GET'])
 def search():

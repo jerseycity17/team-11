@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% from 'macros/pagination.html' import paginate %}
+{% block title %}Tag Cloud{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        <h1 class="page-header">ISHAR Tag Cloud</h1>
+    </div>
+</div>
+
+{% for tag, value in tags.iteritems() %}
+{% if tag %}
+<a href="{{ url_for('view_articles_with_tag', tag=tag) }}" class="btn btn-default {% if value <= 4 %}btn-xs{% elif value <= 12 %}btn-sm{% elif value <= 24 %}btn-md{% else %}btn-lg{% endif %}">{{ tag }}</a>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
