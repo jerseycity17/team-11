@@ -1,13 +1,9 @@
 from app import db
 
-class Category(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), index=True)
-    
 class Article(db.Model):
     key = db.Column(db.String, primary_key=True)
-    item_type = db.Column(db.String)
-    publication_year = db.Column(db.Integer, index=True)
+    item_type = db.Column(db.String, index=True)
+    publication_year = db.Column(db.String, index=True)
     author = db.Column(db.String, index=True)
     title = db.Column(db.String, index=True)
     publication_title = db.Column(db.String, index=True)
@@ -26,6 +22,7 @@ class Article(db.Model):
     volume = db.Column(db.String, index=True)
     num_volumes = db.Column(db.String, index=True)
     abstract = db.Column(db.String, index=True)
+    journal_abbreviation = db.Column(db.String, index=True)
     short_title = db.Column(db.String, index=True)
     series = db.Column(db.String, index=True)
     series_number = db.Column(db.String, index=True)
@@ -46,3 +43,4 @@ class Article(db.Model):
     link_attachments = db.Column(db.String, index=True)
     manual_tags = db.Column(db.String, index=True)
     auto_tags = db.Column(db.String, index=True)
+    category = db.Column(db.String, index=True)
