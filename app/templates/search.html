@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}Search Results - {{ value }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header">{% if value %}Search Results - {{ value }}{% else %}Advanced Search{% endif %}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="well">
+            <form role="form" class="form-horizontal" action="{{ url_for('search') }}">
+                <div class="form-group">
+                    <label for="title_search" class="col-xs-2 control-label text-right">Title:</label>
+                    <div class="col-xs-4 col-md-3">
+                        <select class="form-control" name="title_search_filter">
+                            <option value="1">contains</option>
+                            <option value="0" {% if title_search_filter == '0' %}selected{% endif %}>doesn't contain</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6 col-md-7">
+                        <input class="form-control col-xs-8" name="title_search" type="text" placeholder="Title" value="{% if value %}{{ value }}{% elif title_search %}{{ title_search }}{% endif %}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="author_search" class="col-xs-2 control-label text-right">Author(s):</label>
+                    <div class="col-xs-4 col-md-3">
+                        <select class="form-control" name="author_search_filter">
+                            <option value="1">contains</option>
+                            <option value="0" {% if author_search_filter == '0' %}selected{% endif %}>doesn't contain</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6 col-md-7">
+                        <input class="form-control col-xs-8" name="author_search" type="text" placeholder="Author(s)" value="{% if value %}{{ value }}{% elif author_search %}{{ author_search }}{% endif %}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="abstract_search" class="col-xs-2 control-label text-right">Abstract:</label>
+                    <div class="col-xs-4 col-md-3">
+                        <select class="form-control" name="abstract_search_filter">
+                            <option value="1">contains</option>
+                            <option value="0" {% if abstract_search_filter == '0' %}selected{% endif %}>doesn't contain</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6 col-md-7">
+                        <input class="form-control col-xs-8" name="abstract_search" type="text" placeholder="Abstract" value="{% if value %}{{ value }}{% elif abstract_search %}{{ abstract_search }}{% endif %}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="publication_title_search" class="col-xs-2 control-label text-right">Publication Title:</label>
+                    <div class="col-xs-5 col-md-3">
+                        <select class="form-control" name="publication_title_search_filter">
+                            <option value="1">contains</option>
+                            <option value="0" {% if publication_title_search_filter == '0' %}selected{% endif %}>doesn't contain</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4 col-md-7">
+                        <input class="form-control col-xs-8" name="publication_title_search" type="text" placeholder="Publication Title" value="{% if value %}{{ value }}{% elif publication_title_search %}{{ publication_title_search }}{% endif %}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-10 col-xs-offset-2">
+                        <button type="submit" class="btn btn-primary ">Apply</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% for article in articles %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <a class="panel-heading" style="display: block" href="{{ url_for('view_article', article_key=article.key) }}"><h4>{{ article.title }}</h4></a>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-2 text-right-sm"><strong>Publication Title:</strong></div>
+                    <div class="col-sm-10">{{ article.publication_title }}</div>
+                </div>
+                {% set tags = article.auto_tags.split('; ') + article.manual_tags.split('; ') %}
+                <div class="row">
+                    <div class="col-sm-2 text-right-sm"><strong>Tags:</strong></div>
+                    <div class="col-sm-10">{% for tag in tags %}{% if tag %}<a href="{{ url_for('view_articles_with_tag', tag=tag) }}">{{ tag }}</a>{% if not loop.last %}; {% endif %}{% endif %}{% endfor %}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 text-right-sm"><strong>Author(s):</strong></div>
+                    <div class="col-sm-10">{% for author in article.author.split(';') %}<div>{{author}}</div>{% endfor %}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

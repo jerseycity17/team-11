@@ -1,7 +1,8 @@
 from app import app
 from app import db, models
 
-from flask import render_template, redirect, abort, url_for, jsonify
+from flask import render_template, redirect, abort, url_for, jsonify, request
+from sqlalchemy import or_, not_
 
 @app.route('/')
 def index():
@@ -24,7 +25,61 @@ def view_article(article_key):
     
 @app.route('/tags/<tag>/', methods=['GET'])
 def view_articles_with_tag(tag):
-    articles = ' '
-    articles = models.Article.query.filter(models.Article.auto_tags.contains(tag)).all()
-    articles += models.Article.query.filter(models.Article.manual_tags.contains(tag)).all()
+    articles = models.Article.query.filter(or_(
+        models.Article.auto_tags.contains(tag),
+        models.Article.manual_tags.contains(tag)
+    )).all()
     return render_template('articles_with_tag.html', tag=tag, articles=articles)
+    
+@app.route('/search/', methods=['GET'])
+def search():
+    value = request.args.get('val')
+    search_results = []
+    # normal search
+    if value:
+        search_results = models.Article.query.filter(or_(
+            models.Article.abstract_note.contains(value),
+            models.Article.title.contains(value),
+            models.Article.author.contains(value),
+            models.Article.category.contains(value),
+            models.Article.auto_tags.contains(value),
+            models.Article.manual_tags.contains(value),
+            models.Article.publication_title.contains(value)
+        )).order_by(models.Article.date_added.desc())
+    # advanced search
+    else:
+        search_results = models.Article.query
+        searched = False
+        if request.args.get('title_search'):
+            searched = True
+            title = request.args.get('title_search')
+            if request.args.get('title_search_filter') == '1':
+                search_results = search_results.filter(models.Article.title.contains(title))
+            else:
+                search_results = search_results.filter(not_(models.Article.title.contains(title)))
+        if request.args.get('author_search'):
+            searched = True
+            author = request.args.get('author_search')
+            if request.args.get('author_search_filter') == '1':
+                search_results = search_results.filter(models.Article.author.contains(author))
+            else:
+                search_results = search_results.filter(not_(models.Article.author.contains(author)))
+        if request.args.get('abtract_search'):
+            searched = True 
+            abtract = request.args.get('abtract_search')
+            if request.args.get('abtract_search_filter') == '1':
+                search_results = search_results.filter(models.Article.abtract_note.contains(abtract))
+            else:
+                search_results = search_results.filter(not_(models.Article.abtract_note.contains(abtract)))
+        if request.args.get('publication_title_search'):
+            searched = True
+            publication_title = request.args.get('publication_title_search')
+            if request.args.get('publication_title_search_filter') == '1':
+                search_results = search_results.filter(models.Article.publication_title.contains(publication_title))
+            else:
+                search_results = search_results.filter(not_(models.Article.publication_title.contains(publication_title)))
+        if searched:
+            search_results = search_results.all()
+        else:
+            search_results = []
+    return render_template('search.html', articles=search_results, value=value, **request.args.to_dict())
